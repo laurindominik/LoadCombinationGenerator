@@ -1,31 +1,14 @@
+console.log("Test");
+
+
 let btnGet = document.getElementById('create-table');
 let btnRemove = document.getElementById('remove-table');
-
-
-
 let myTable = document.querySelector('#table');
-
-
-
 let checkDead = document.querySelector("#dead");
 let checkboxLive = document.querySelector("#live");
-
-
-
-function checkboxesChecked() {
-    var checkboxes = document.getElementsByName('loads');
-    //console.log(checkboxes);
-    for(var i = 0; i<checkboxes.length; i++) {
-        if(checkboxes[i].checked == true){
-            console.log(checkboxes[i]);
-        }
-    }
-};
-
-checkboxesChecked();
-
-
 let headers1 = ['uls load combination', '', ''];
+
+
 
 btnRemove.addEventListener( 'click', function(){
     document.getElementById('table').innerHTML="";
@@ -188,8 +171,6 @@ btnGet.addEventListener( 'click', function() {
 });
     
     
-
-
 
 
 
