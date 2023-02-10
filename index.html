@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Load Combination Generator</title>
+    <h1>load combination generator.</h1>
+</head>
+<body>
+    <div class="app">
+        <label class="headers">loads.</label><br>
+        <label class ="checkboxes"><input type="checkbox" id="dead" name="loads" value="Dead load">dead load</label>
+        <label class ="checkboxes"><input type="checkbox" id="live" name="loads" value="Live load">live load</label>
+        <label class ="checkboxes"><input type="checkbox" id="snow" name="loads" value="Snow load">snow load</label>
+        <label class ="checkboxes"><input type="checkbox" id="wind" name="loads" value="Wind load">wind load</label><br>
+        <label class="headers">partial factors.</label><br>
+        <label class="descriptions">permanent action (upper design values)</label>
+        <input type="text" class="textbox" id="factor-dead" value="1.35"><br>
+        <label class="descriptions">permanent action (lower design values)</label>
+        <input type="text" class="textbox" id="factor-dead-lower" value="1.0"><br>
+        <label class="descriptions">variable actions</label>
+        <input type="text" class="textbox" id="factor-var" value="1.5"><br>
+        <label class="headers">psi factors.</label><br>
+        <label class="descriptions">live load</label>
+        <input type="text" class="textbox" id="psi-live" value="0.0"><br>
+        <label class="descriptions">snow load</label>
+        <input type="text" class="textbox" id="psi-snow" value="0.6"><br>
+        <label class="descriptions">wind load</label>
+        <input type="text" class="textbox" id="psi-wind" value="0.5"><br>
+        <label class="headers">load values.</label>
+        <p class="descriptions"> Select the unit of the loads:
+            <select id="select1" class="selectionbox">
+                <option value="kN">kN</option>
+                <option value="kN/m">kN/m</option>
+                <option value="kN/m2">kN/m2</option>
+            </select>
+        </p>
+      
+      
+
+        <label class="descriptions">dead load</label>
+        <input type="text" class="textbox" id="dead-value" value="2.0"><br>
+        <label class="descriptions">live load</label>
+        <input type="text" class="textbox" id="live-value" value="1.0"><br>
+        <label class="descriptions">snow load</label>
+        <input type="text" class="textbox" id="snow-value" value="0.0"><br>
+        <label class="descriptions">wind load</label>
+        <input type="text" class="textbox" id="wind-value" value="0.0"><br>
+        <button id="create-table" class="button1">create table</button>
+        <button id="remove-table" class="button1">remove table</button>
+        <!--<h1>Result</h1>-->
+
+
+
+        <div id="table" class="table"></div>
+    </div>
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
