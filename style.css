@@ -46,6 +46,12 @@ h1 {
   gap: 0.5em;
 }
 
+#totalvalue2 {
+  margin-top: 1.5em;
+  
+}
+
+
 .selectionbox {
   font-size: 0.85em;
 }

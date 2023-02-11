@@ -1,6 +1,3 @@
-console.log("Test");
-
-
 let btnGet = document.getElementById('create-table');
 let btnRemove = document.getElementById('remove-table');
 let myTable = document.querySelector('#table');
@@ -10,8 +7,12 @@ let headers1 = ['uls load combination', '', ''];
 
 
 
+
 btnRemove.addEventListener( 'click', function(){
     document.getElementById('table').innerHTML="";
+    if(headers1.includes("total value") == true){
+        headers1.splice(3);
+    }
 });
 
 
@@ -37,6 +38,8 @@ btnGet.addEventListener( 'click', function() {
     let checkLive = document.querySelector("#live");
     let checkSnow = document.querySelector("#snow");
     let checkWind = document.querySelector("#wind");
+    let checkTotal = document.querySelector("#totalvalue");
+
 
     //dropdown kN, kN/m or kN/m2
     selectElement = document.querySelector('#select1');
@@ -74,6 +77,16 @@ btnGet.addEventListener( 'click', function() {
 
 
 
+    //4th column
+    let totalValues = [];
+    let totalDead = [factorDead*deadValue];
+    let totalDeadLive = [factorDead*deadValue,factorDead*deadValue+factorLive*liveValue];
+    let totalDeadLiveSnow = [factorDead*deadValue,factorDead*deadValue+factorLive*liveValue,factorDead*deadValue+factorLive*snowValue,factorDead*deadValue+factorLive*liveValue+factorLive*psiSnow*snowValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*snowValue];
+    let totalDeadLiveSnowWind = [factorDead*deadValue,factorDead*deadValue+factorLive*liveValue,factorDead*deadValue+factorLive*snowValue,factorDeadLower*deadValue+factorLive*windValue,factorDead*deadValue+factorLive*windValue,factorDead*deadValue+factorLive*liveValue+factorLive*psiSnow*snowValue,factorDead*deadValue+factorLive*liveValue+factorLive*psiWind*windValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*snowValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*windValue,factorDead*deadValue+factorLive*psiSnow*snowValue+factorLive*windValue,factorDead*deadValue+factorLive*psiWind*windValue+factorLive*snowValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*snowValue+factorLive*psiWind*windValue,factorDead*deadValue+factorLive*liveValue+factorLive*psiSnow*snowValue+factorLive*psiWind*windValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*psiSnow*snowValue+factorLive*windValue];
+    let totalDeadLiveWind = [factorDead*deadValue,factorDead*deadValue+factorLive*liveValue,factorDead*deadValue+factorLive*windValue,factorDeadLower*deadValue+factorLive*windValue,factorDead*deadValue+factorLive*liveValue+factorLive*psiWind*windValue,factorDead*deadValue+factorLive*psiLive*liveValue+factorLive*windValue];
+    let totalDeadSnowWind = [factorDead*deadValue,factorDead*deadValue+factorLive*snowValue,factorDead*deadValue+factorLive*windValue,factorDeadLower*deadValue+factorLive*windValue,factorDead*deadValue+factorLive*snowValue+factorLive*psiWind*windValue,factorDead*deadValue+factorLive*psiSnow*snowValue+factorLive*windValue];
+    let totalDeadWind = [factorDead*deadValue,factorDead*deadValue+factorLive*windValue,factorDeadLower*deadValue+factorLive*windValue];
+    let totalDeadSnow = [factorDead*deadValue,factorDead*deadValue+factorLive*snowValue];
 
 
 
@@ -84,49 +97,64 @@ btnGet.addEventListener( 'click', function() {
         console.log("Dead + Live load");
         loadCFinal = lcDeadLive;
         combValueFinal = lcDeadLiveValue;
+        totalValues = totalDeadLive;
     }
     else if(checkSnow.checked == false  && checkWind.checked == false && checkDead.checked == true && checkLive.checked == false){
         console.log("Dead load");
         loadCFinal = lcDead;
         combValueFinal = lcDeadValue;
+        totalValues = totalDead;
     }
     else if(checkSnow.checked == true  && checkWind.checked == false && checkDead.checked == true && checkLive.checked == true){
         console.log("Dead + live + snow load");
         loadCFinal = lcDeadLiveSnow;
         combValueFinal = lcDeadLiveSnowValue;
+        totalValues = totalDeadLiveSnow;
     }
     else if(checkSnow.checked == true  && checkWind.checked == true && checkDead.checked == true && checkLive.checked == true){
         console.log("Dead + live + snow + wind load");
         loadCFinal = lcDeadLiveSnowWind;
         combValueFinal = lcDeadLiveSnowWindValue;
+        totalValues = totalDeadLiveSnowWind;
     }
     else if(checkSnow.checked == false  && checkWind.checked == true && checkDead.checked == true && checkLive.checked == true){
         console.log("Dead + live + wind load");
         loadCFinal = lcDeadLiveWind;
         combValueFinal = lcDeadLiveWindValue;
+        totalValues = totalDeadLiveWind;
     }
     else if(checkSnow.checked == true  && checkWind.checked == true && checkDead.checked == true && checkLive.checked == false){
         console.log("Dead + snow + wind load");
         loadCFinal = lcDeadSnowWind;
         combValueFinal = lcDeadSnowWindValue;
+        totalValues = totalDeadSnowWind;
     }
     else if(checkSnow.checked == false  && checkWind.checked == true && checkDead.checked == true && checkLive.checked == false){
         console.log("Dead + wind load");
         loadCFinal = lcDeadWind;
         combValueFinal = lcDeadWindValue;
+        totalValues = totalDeadWind;
     }
     else if(checkSnow.checked == true  && checkWind.checked == false && checkDead.checked == true && checkLive.checked == false){
         console.log("Dead + snow load");
         loadCFinal = lcDeadSnow;
         combValueFinal = lcDeadSnowValue;
+        totalValues = totalDeadSnow;
     }
 
+    // this is what i am working on rn.
+    if(checkTotal.checked == true){
+        totalValues = totalValues;
+        headers1.push("total value");
+    }
+    else {
+        totalValues = ["X"];
+    }
 
+    totalValues = totalValues.map(function(each_element){
+        return Number(each_element.toFixed(2));
+    });
 
-
-
-
-    //console.log(loadCFinal);
 
     //Table
     let table = document.createElement('table');
@@ -144,9 +172,11 @@ btnGet.addEventListener( 'click', function() {
         let cell2 = document.createElement('td');
         let cell3 = document.createElement('td');
 
+
         let textNode1 = document.createTextNode("LC"+(loadCFinal.indexOf(lc)+1));
         let textNode2 = document.createTextNode(lc);
         let textNode3 = document.createTextNode(combValueFinal[loadCFinal.indexOf(lc)]);
+
 
         cell1.appendChild(textNode1);
         cell2.appendChild(textNode2);
@@ -156,14 +186,14 @@ btnGet.addEventListener( 'click', function() {
         row.appendChild(cell2);
         row.appendChild(cell3);
 
+        if(checkTotal.checked == true){
+            let cell4 = document.createElement('td');
+            let textNode4 = document.createTextNode(totalValues[loadCFinal.indexOf(lc)] + unit);
+            cell4.appendChild(textNode4);
+            row.appendChild(cell4);
+        }
 
 
-        //Object.values(emp).forEach(text => {
-        //    let cell = document.createElement('td');
-        //    let textNode = document.createTextNode(text);
-        //    cell.appendChild(textNode);
-        //    row.appendChild(cell);
-        //})
         table.appendChild(row);
     });
     myTable.appendChild(table);
