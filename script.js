@@ -51,7 +51,7 @@ btnGet.addEventListener( 'click', function() {
 
 
 
-    //second column
+    //second column - ULS
     let loadCFinal = [];
     let lcDead = [factorDead + ' g' + sub ];
     let lcDeadLive = [factorDead + " g" + sub, factorDead + " g" + sub + " + " + factorLive+" q" + sub];
@@ -63,8 +63,19 @@ btnGet.addEventListener( 'click', function() {
     let lcDeadSnow = [factorDead + " g" + sub, factorDead + " g" + sub + " + " + factorLive+" s" + sub];
 
 
+    //second column - SLS
+    let loadCFinalSLS = [];
+    let lcDeadSLS = [' g' + sub ];
+    let lcDeadLiveSLS = [" g" + sub, " g" + sub + " + " + " q" + sub];
+    let lcDeadLiveSnowSLS = [" g" + sub, " g" + sub + " + " + " q" + sub, " g" + sub + " + " + " s" + sub, " g" + sub + " + " +" q" + sub + " + " +" * "+ psiSnow +" * s" + sub, " g" + sub + " + " + " * " + psiLive + " * q" + sub + " + " +" * s" + sub];
+    let lcDeadLiveSnowWindSLS = [" g" + sub, " g" + sub + " + " + " q" + sub, " g" + sub + " + " + " s" + sub, " g" + sub + " + " + " w" + sub, " g" + sub + " + " + " q" + sub + " + " +" * "+ psiSnow +" * s" + sub, " g" + sub + " + " +" q" + sub + " + " + " * "+ psiWind +" * w" + sub, " g" + sub + " + " +" * " + psiLive + " * q" + sub + " + " +" * s" + sub, " g" + sub + " + " +" * " + psiLive + " * q" + sub + " + " +" * w" + sub, " g" + sub + " + " + " * " + psiSnow + " * s" + sub + " + " + " * w" + sub,  " g" + sub + " + " +" * " + psiWind + " * w" + sub + " + " + " * s" + sub, " g" + sub + " + " +" * " + psiLive + " * q" + sub + " + " +" * s" + sub + " + " +" * " + psiWind + " * w" + sub, " g" + sub + " + " + " * q" + sub + " + " + " * " + psiSnow + " * s" + sub + " + " +" * " + psiWind + " * w" + sub, " g" + sub + " + " +" * " + psiLive + " * q" + sub + " + " + " * " + psiSnow + " * s" + sub + " + " + " * w" + sub];
+    let lcDeadLiveWindSLS = [" g" + sub, " g" + sub + " + " + " q" + sub, " g" + sub + " + " + " w" + sub, " g" + sub + " + " + " q" + sub + " + " + " * "+ psiWind +" * w" + sub, " g" + sub + " + " + " * " + psiLive + " * q" + sub + " + " + " * w" + sub];
+    let lcDeadSnowWindSLS = [" g" + sub, " g" + sub + " + " + " s" + sub, " g" + sub + " + " +" w" + sub, " g" + sub + " + " +" s" + sub + " + " +" * "+ psiWind +" * w" + sub, " g" + sub + " + " +" * " + psiSnow + " * s" + sub + " + " +" * w" + sub];
+    let lcDeadWindSLS = [" g" + sub, " g" + sub + " + " + " w" + sub];
+    let lcDeadSnowSLS = [" g" + sub, " g" + sub + " + " + " s" + sub];
 
-    //third column
+
+    //third column - ULS
     let combValueFinal = [];
     let lcDeadValue = [factorDead + " * " + deadValue + unit];
     let lcDeadLiveValue = [factorDead + " * " + deadValue + unit, factorDead + " * " + deadValue + unit + " + " + factorLive+ " * " + liveValue + unit];
@@ -77,7 +88,7 @@ btnGet.addEventListener( 'click', function() {
 
 
 
-    //4th column
+    //4th column - ULS
     let totalValues = [];
     let totalDead = [factorDead*deadValue];
     let totalDeadLive = [factorDead*deadValue,factorDead*deadValue+factorLive*liveValue];
