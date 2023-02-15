@@ -87,6 +87,17 @@ btnGet.addEventListener( 'click', function() {
     let lcDeadSnowValue = [factorDead + " * " + deadValue + unit, factorDead + " * " + deadValue + unit + " + " + factorLive + " * " + snowValue + unit];
 
 
+    //third column - SLS
+    let combValueFinalSLS = [];
+    let lcDeadValueSLS = [deadValue + unit];
+    let lcDeadLiveValueSLS = [deadValue + unit, deadValue + unit + " + " + liveValue + unit];
+    let lcDeadLiveSnowValueSLS = [deadValue + unit, deadValue + unit + " + " + liveValue + unit, deadValue + unit + " + " + snowValue + unit, deadValue + unit + " + " + liveValue + unit + " + " + psiSnow +" * " + snowValue + unit, deadValue + unit + " + " + psiLive + " * " + liveValue + unit + " + " + snowValue + unit];
+    let lcDeadLiveSnowWindValueSLS = [deadValue + unit, deadValue + unit + " + " + liveValue + unit, deadValue + unit + " + " + snowValue + unit, deadValue + unit + " + " + " * " + windValue + unit, deadValue + unit + " + " + liveValue + unit + " + "  + psiSnow +" * " + snowValue + unit, deadValue + unit + " + " + liveValue + unit + " + "  + psiWind + " * " + windValue + unit, deadValue + unit + " + " + psiLive + " * " + liveValue + unit + " + "  + snowValue + unit, deadValue + unit + " + " + psiLive + " * " + liveValue + unit + " + "  + windValue + unit, deadValue + unit + " + " + psiSnow + " * " + snowValue + unit + " + " + windValue + unit, deadValue + unit + " + " + psiWind + " * " + windValue + unit + " + " + snowValue + unit, deadValue + unit + " + " + + psiLive + " * " + liveValue + unit + " + "  + snowValue + unit + " + " + psiWind + " * " + windValue + unit, deadValue + unit + " + " + liveValue + unit + " + "  + psiSnow + " * " + snowValue + unit + " + " + psiWind + " * " + windValue + unit, deadValue + unit + " + " + psiLive + " * " + liveValue + unit + " + "  + psiSnow + " * " + snowValue + unit + " + " + windValue + unit];
+    let lcDeadLiveWindValueSLS = [deadValue + unit, deadValue + unit + " + " + liveValue + unit, deadValue + unit + " + " + windValue + unit, deadValue + unit + " + " + liveValue + unit + " + " + psiWind +" * " + windValue + unit, deadValue + unit + " + " + psiLive + " * " + liveValue + unit + " + " + windValue + unit];
+    let lcDeadSnowWindValueSLS = [deadValue + unit, deadValue + unit + " + " + snowValue + unit, deadValue + unit + " + " + windValue + unit, deadValue + unit + " + " + snowValue + unit + " + " + psiWind + " * " + windValue + unit, deadValue + unit + " + " + psiSnow + " * " + snowValue + unit + " + " + windValue + unit];
+    let lcDeadWindValueSLS = [deadValue + unit, deadValue + unit + " + " + windValue + unit];
+    let lcDeadSnowValueSLS = [deadValue + unit, deadValue + unit + " + " + snowValue + unit];
+
 
     //4th column - ULS
     let totalValues = [];
