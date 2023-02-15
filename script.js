@@ -169,9 +169,11 @@ btnGet.addEventListener( 'click', function() {
         totalValues = totalValues;
         headers1.push("total value");
     }
-    else {
-        totalValues = ["X"];
-    }
+    //else {
+    //    totalValues = ["X"];
+    //}
+
+
 
     totalValues = totalValues.map(function(each_element){
         return Number(each_element.toFixed(2));
