@@ -111,6 +111,19 @@ btnGet.addEventListener( 'click', function() {
     let totalDeadSnow = [factorDead*deadValue,factorDead*deadValue+factorLive*snowValue];
 
 
+    //4th column - SLS
+    let totalValuesSLS = [];
+    let totalDeadSLS = [deadValue];
+    let totalDeadLiveSLS = [deadValue,deadValue+liveValue];
+    let totalDeadLiveSnowSLS = [deadValue,deadValue+liveValue,deadValue+snowValue,deadValue+liveValue+psiSnow*snowValue,deadValue+psiLive*liveValue+snowValue];
+    let totalDeadLiveSnowWindSLS = [deadValue,deadValue+liveValue,deadValue+snowValue,deadValue+windValue,deadValue+liveValue+psiSnow*snowValue,deadValue+liveValue+psiWind*windValue,deadValue+psiLive*liveValue+snowValue,deadValue+psiLive*liveValue+windValue,deadValue+psiSnow*snowValue+windValue,deadValue+psiWind*windValue+snowValue,deadValue+psiLive*liveValue+snowValue+psiWind*windValue,deadValue+liveValue+psiSnow*snowValue+psiWind*windValue,deadValue+psiLive*liveValue+psiSnow*snowValue+windValue];
+    let totalDeadLiveWindSLS = [deadValue,deadValue+liveValue,deadValue+windValue,deadValue+liveValue+psiWind*windValue,deadValue+psiLive*liveValue+windValue];
+    let totalDeadSnowWindSLS = [deadValue,deadValue+snowValue,deadValue+windValue,deadValue+snowValue+psiWind*windValue,deadValue+psiSnow*snowValue+windValue];
+    let totalDeadWindSLS = [deadValue,deadValue+windValue];
+    let totalDeadSnowSLS = [deadValue,deadValue+snowValue];
+
+
+
 
     
     //console.log(checkboxes);
